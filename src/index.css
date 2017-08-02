@@ -17,6 +17,10 @@ body, .app {
   background: #f5f5f5;
 }
 
+.count {
+  text-align: center;
+}
+
 /* CreateContact */
 
 .close-create-contact {
