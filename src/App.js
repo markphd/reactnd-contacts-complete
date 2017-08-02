@@ -22,19 +22,28 @@ class App extends Component {
   	      "email": "tyler@reacttraining.com",
   	      "avatarURL": "http://localhost:5001/tyler.jpg"
   	    }
-	]
+	  ],
+    count: 0
   }
 
   removeContact = (contact) => {
   	this.setState((state) => ({
-  		contacts: {}
+  		contacts: state.contacts.filter((c) => c.id !== contact.id )
   	}))
+    // this.setState({
+    //   contacts: [{
+    //     "id": "Mark",
+    //     "name": "Mark Philip",
+    //     "email": "mpd@one.com",
+    //     "avatarURL": "http://localhost:5001/ryan.jpg"
+    //   }]
+    // })
   }
 
   render() {
     return (
       <div>
-        <ListContacts contacts={this.state.contacts} />
+        <ListContacts onDelete={this.removeContact} contacts={this.state.contacts} />
       </div>
     )
   }
